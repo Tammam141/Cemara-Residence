@@ -1,0 +1,179 @@
+#video-background {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    z-index: -1;
+}
+
+@font-face {
+    font-family: myFont;
+    src: url(/resource/font/ShailendraDemoRegular.ttf);
+}
+
+header {
+    position: fixed;
+    top: 0;
+    display: flex;
+    position: sticky;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px;
+    background-color: rgba(0, 0, 0, 0.5);
+    color: #fff;
+    z-index: 1000;
+}
+
+#container {
+    padding: 40px;
+    background-color: rgba(4, 4, 14, 0.7);
+    text-align: center;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    max-width: 1000px;
+    margin: 50px auto;
+}
+
+#container h1 {
+    font-size: 24px;
+    margin-bottom: 20px;
+    color: #e5d464;
+    font-family: myFont;
+}
+
+#container p {
+    color: #fdfdfd;
+}
+
+.logo img {
+    width: 50px;
+}
+
+nav ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+}
+
+nav ul li {
+    display: inline;
+    margin-right: 12px;
+}
+
+nav ul li a {
+    text-decoration: none;
+    font-size: 15pt;
+    text-align: center;
+    color: #ffffff;
+    padding: 10px 20px;
+    border-radius: 5px;
+    border: 2px solid #c4c3c3;
+    margin: 0 5px;
+    transition: background-color 0.3s, color 0.3s, transform 0.3s;
+}
+
+.navbar ul li a:hover {
+    background-color: #ffffff;
+    color: #000000;
+    transform: scale(1.1);
+    border-color: #ffffff;
+}
+
+
+footer {
+    position: relative;
+    bottom: 0;
+    width: 100%;
+    background-color: #1a1a1a;
+    color: white;
+    text-align: center;
+    padding: 10px 0;
+}
+
+
+.contact-info {
+    margin-bottom: 10px;
+    color: #ecf0f1;
+}
+
+.contact-info a {
+    color: #e59400;
+}
+
+.contact-info a:hover {
+    text-decoration: underline;
+}
+
+.social-media {
+    margin-bottom: 10px;
+}
+
+.social-icon {
+    margin: 0 10px;
+}
+
+.social-icon img {
+    width: 30px;
+    height: 30px;
+}
+
+
+button {
+    background-color: #aa9208;
+    color: #fff;
+    border: none;
+    padding: 10px 20px;
+    margin: 10px;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+    font-weight: bold;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    transition: background-color 0.3s, transform 0.3s;
+}
+
+button:hover {
+    background-color: #FFC700;
+    transform: scale(1.05);
+}
+
+button:active {
+    background-color: #FFB700;
+}
+
+
+#image-modal {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.8);
+    justify-content: center;
+    align-items: center;
+    z-index: 1000;
+}
+
+#image-modal img {
+    width: 80%;
+    height: auto;
+    max-width: 800px;
+    object-fit: cover;
+    margin: auto;
+    display: block;
+}
+
+#close-modal {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    background-color: #fff;
+    color: #000;
+    border: none;
+    font-size: 24px;
+    cursor: pointer;
+    padding: 10px 20px;
+}

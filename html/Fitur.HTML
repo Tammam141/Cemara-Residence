@@ -1,0 +1,350 @@
+<!DOCTYPE html>
+<html lang="id">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tentang Kami - Perumahan Impian</title>
+    <link rel="stylesheet" href="/css/home.css">
+    <script src="/resource/jquery/jquery-1.8.3.js"></script>
+    <script>
+        $(document).ready(function () {
+            $('.feature').click(function () {
+                var images = $(this).data('images').split(',');
+                var $carousel = $('#image-modal .carousel-inner');
+                $carousel.empty();
+                images.forEach((image, index) => {
+                    $carousel.append(
+                        `<div class="carousel-item ${index === 0 ? 'active' : ''}">
+                            <img src="${image}" alt="Feature Image">
+                        </div>`
+                    );
+                });
+                currentSlide = 0;
+                showSlide(currentSlide);
+                $('#image-modal').show();
+            });
+
+            $('#close-modal').click(function () {
+                $('#image-modal').hide();
+            });
+
+            $(document).keydown(function (e) {
+                if (e.key === "Escape") {
+                    $('#image-modal').hide();
+                }
+            });
+        });
+
+        var currentSlide = 0;
+
+        function showSlide(index) {
+            var slides = document.getElementsByClassName('carousel-item');
+            if (index >= slides.length) {
+                currentSlide = 0;
+            } else if (index < 0) {
+                currentSlide = slides.length - 1;
+            } else {
+                currentSlide = index;
+            }
+            for (var i = 0; i < slides.length; i++) {
+                slides[i].style.display = 'none';
+            }
+            slides[currentSlide].style.display = 'block';
+        }
+
+        function nextSlide() {
+            showSlide(currentSlide + 1);
+        }
+
+        function prevSlide() {
+            showSlide(currentSlide - 1);
+        }
+    </script>
+
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #1a1a1a;
+            color: #ffffff;
+            margin: 0;
+            padding: 0;
+        }
+
+        .title {
+            font-size: 32px;
+            margin-bottom: 20px;
+            letter-spacing: 2px;
+        }
+
+        .features {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 20px;
+        }
+
+        .feature {
+            background-color: #333333;
+            padding: 20px;
+            border-radius: 8px;
+            width: 200px;
+            text-align: center;
+            transition: transform 0.3s ease, background-color 0.3s ease;
+            cursor: pointer;
+        }
+
+        .feature:hover {
+            transform: scale(1.05);
+            background-color: #444444;
+        }
+
+        .feature-icon {
+            font-size: 40px;
+            margin-bottom: 10px;
+            transition: color 0.3s ease;
+        }
+
+        .feature-title {
+            font-size: 20px;
+            margin-bottom: 10px;
+        }
+
+        .feature-description {
+            font-size: 14px;
+        }
+
+        .feature:hover .feature-icon {
+            color: #ffd700;
+        }
+
+        #image-modal {
+            display: none;
+            position: fixed;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 80%;
+            max-width: 600px;
+            background-color: #1a1a1a;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+            z-index: 1000;
+        }
+
+        #image-modal .modal-content {
+            position: relative;
+        }
+
+        #image-modal img {
+            width: 100%;
+            border-radius: 10px 10px 0 0;
+        }
+
+        #image-modal .close {
+            position: absolute;
+            top: 10px;
+            right: 20px;
+            font-size: 30px;
+            font-weight: bold;
+            color: #ffffff;
+            cursor: pointer;
+        }
+
+        .carousel {
+            position: relative;
+        }
+
+        .carousel-inner {
+            position: relative;
+            width: 100%;
+            overflow: hidden;
+        }
+
+        .carousel-item {
+            display: none;
+            text-align: center;
+        }
+
+        .carousel-item.active {
+            display: block;
+        }
+
+        .carousel-control-prev,
+        .carousel-control-next {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            background-color: rgba(0, 0, 0, 0.5);
+            border: none;
+            color: white;
+            padding: 10px;
+            cursor: pointer;
+        }
+
+        .carousel-control-prev {
+            left: 10px;
+        }
+
+        .carousel-control-next {
+            right: 10px;
+        }
+    </style>
+</head>
+
+<body>
+    <video id="video-background" autoplay muted loop>
+        <source src="/resource/background video/background.mp4" type="video/mp4">
+    </video>
+    <header>
+        <div class="logo">
+            <img src="../resource/logo/logo utama.jpg" alt="Logo Perumahan Impian">
+        </div>
+        <nav class="navbar">
+            <ul>
+                <li><a href="home.html">Beranda</a></li>
+                <li><a href="about.html">Tentang Kami</a></li>
+                <li><a href="galeri.html">Galeri</a></li>
+                <li><a href="fitur.html">Fitur</a></li>
+                <li><a href="kontak.html">Kontak</a></li>
+            </ul>
+        </nav>
+    </header>
+    <main id="container">
+        <div class="title">
+            <h1>Fitur Perumahan</h1>
+        </div>
+
+      
+        <div class="features">
+            <div class="feature" data-images="/resource/fitur/kolam 1.jpg,/resource/fitur/kolam 2.jpg,/resource/fitur/kolam 3.jpg">
+                <div class="feature-icon">🏊‍♂</div>
+                <div class="feature-title">Kolam Renang</div>
+                <div class="feature-description">Nikmati berenang di kolam modern kami.</div>
+            </div>
+            <div class="feature" data-images="/resource/fitur/gym 1.jpg,/resource/fitur/gym 2.jpg,/resource/fitur/gym 3.jpg">
+                <div class="feature-icon">🏋‍♂</div>
+                <div class="feature-title">Gym</div>
+                <div class="feature-description">Gym lengkap untuk semua kebutuhan kebugaran Anda.</div>
+            </div>
+            <div class="feature" data-images="/resource/fitur/satpam 1.jpg,/resource/fitur/satpam 2.jpg,/resource/fitur/satpam 3.jpg">
+                <div class="feature-icon">🛡</div>
+                <div class="feature-title">Keamanan 24/7</div>
+                <div class="feature-description">Keamanan Anda adalah prioritas kami dengan pengamanan 24/7.</div>
+            </div>
+            <div class="feature" data-images="/resource/fitur/taman 1.jpg,/resource/fitur/taman 2.jpg,/resource/fitur/taman 3.jpg">
+                <div class="feature-icon">🌳</div>
+                <div class="feature-title">Taman</div>
+                <div class="feature-description">Taman indah untuk kegiatan luar ruangan dan relaksasi.</div>
+            </div>
+            <div class="feature" data-images="/resource/fitur/sekolah 1.jpg,/resource/fitur/sekolah 2.jpg,/resource/fitur/sekolah 3.jpg">             
+                 <div class="feature-icon">🏫</div>
+                <div class="feature-title">Sekolah</div>
+                <div class="feature-description">Dekat dengan sekolah berkualitas untuk pendidikan anak Anda.</div>
+            </div>
+            <div class="feature" data-images="/resource/fitur/mall 1.jpg,/resource/fitur/mall 2.jpg,/resource/fitur/mall 3.jpg">  
+                <div class="feature-icon">🛒</div>
+                <div class="feature-title">Pusat Perbelanjaan</div>
+                <div class="feature-description">Akses mudah ke pusat perbelanjaan dan mall.</div>
+            </div>
+            <div class="feature" data-images="/resource/fitur/stasiun 1.jpg,/resource/fitur/stasiun 2.jpg,/resource/fitur/stasiun 3.jpg">  
+                <div class="feature-icon">🚆</div>
+                <div class="feature-title">Transportasi Umum</div>
+                <div class="feature-description">Dekat dengan stasiun KRL dan halte TransJakarta.</div>
+            </div>
+            <div class="feature" data-images="/resource/fitur/restoran 1.jpg,/resource/fitur/restoran 2.jpg,/resource/fitur/restoran 3.jpg">  
+                <div class="feature-icon">🍽</div>
+                <div class="feature-title">Restoran</div>
+                <div class="feature-description">Banyak pilihan restoran dan kafe terkenal.</div>
+            </div>
+            <div class="feature" data-images="/resource/fitur/sepeda 1.jpg,/resource/fitur/sepeda 2.jpg,/resource/fitur/sepeda 3.jpg">  
+                <div class="feature-icon">🚴‍♂</div>
+                <div class="feature-title">Jalur Sepeda</div>
+                <div class="feature-description">Jalur sepeda yang aman dan nyaman.</div>
+            </div>
+        </div>
+    </main>
+
+    <div id="image-modal">
+        <div class="modal-content">
+            <span id="close-modal" class="close">&times;</span>
+            <div id="carousel" class="carousel">
+                <div class="carousel-inner">
+                </div>
+                <button class="carousel-control-prev" onclick="prevSlide()">&#10094;</button>
+                <button class="carousel-control-next" onclick="nextSlide()">&#10095;</button>
+            </div>
+        </div>
+    </div>
+
+
+    <footer>
+        <div class="contact-info">
+            <p>Hubungi kami melalui email: <a href="mailto:info.nizhamaufr@gmail.com">info.CemaraResident@gmail.com</a>
+                atau telepon: <a href="tel:+62899-0436-397">+62 813-8436-0058</a>
+                lokasi : <a href="https://maps.app.goo.gl/9GYcfZmueBdhkcif7">Cemara resident Serang</a></p>
+        </div>
+        <div class="social-media">
+            <a href="https://www.facebook.com/?locale=id_ID" class="social-icon"><img
+                    src="/resource/icon footer/facebook (1).png" alt="Facebook"></a>
+            <a href="https://www.instagram.com/accounts/login/" class="social-icon"><img
+                    src="/resource/icon footer/instagram.png" alt="Instagram"></a>
+            <a href="https://home-x.com/" class="social-icon"><img src="/resource/icon footer/logos.png"
+                    alt="Logos"></a>
+        </div>
+        <div class="footer-bottom">
+            &copy; 2024 Perumahan Impian. All rights reserved.
+        </div>
+    </footer>
+
+    <script>
+        var currentSlide = 0;
+
+        function showSlide(index) {
+            var slides = document.getElementsByClassName('carousel-item');
+            if (index >= slides.length) {
+                currentSlide = 0;
+            } else if (index < 0) {
+                currentSlide = slides.length - 1;
+            } else {
+                currentSlide = index;
+            }
+            for (var i = 0; i < slides.length; i++) {
+                slides[i].style.display = 'none';
+            }
+            slides[currentSlide].style.display = 'block';
+        }
+
+        function nextSlide() {
+            showSlide(currentSlide + 1);
+        }
+
+        function prevSlide() {
+            showSlide(currentSlide - 1);
+        }
+
+        $(document).ready(function () {
+            $('.feature').click(function () {
+                var images = $(this).data('images').split(',');
+                var $carousel = $('#image-modal .carousel-inner');
+                $carousel.empty();
+                images.forEach((image, index) => {
+                    $carousel.append(
+                        `<div class="carousel-item ${index === 0 ? 'active' : ''}">
+                            <img src="${image}" alt="Feature Image">
+                        </div>`
+                    );
+                });
+                currentSlide = 0;
+                showSlide(currentSlide);
+                $('#image-modal').show();
+            });
+
+            $('#close-modal').click(function () {
+                $('#image-modal').hide();
+            });
+        });
+    </script>
+</body>
+
+</html>

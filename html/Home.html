@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="id">
+
+<head>
+    <meta charset="UTF-8">
+    <script src="/resource/jquery/jquery-1.8.3.js"></script>
+    <script>
+        $(document).ready(function () {
+            $(".tittle").animate({ left: "0" }, 3000);
+            var images = [
+                '/resource/perumahan/rumah/rumah1Dapur.jpg',
+                '/resource/perumahan/rumah/rumah1FamilyRoom.jpg',
+                '/resource/perumahan/rumah/rumah2.jpg',
+                '/resource/perumahan/rumah/rumah2SwimingPool.jpg',
+            ];
+            var currentIndex = 0;
+            setInterval(function () {
+                currentIndex = (currentIndex + 1) % images.length;
+                $('.backgroundUtama').css('background-image', 'url(' + images[currentIndex] + ' )');
+            }, 4000);
+        });
+    </script>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Perumahan Impian</title>
+    <style>
+        body,
+        html {
+            margin: 0;
+            padding: 0;
+            width: 100%;
+            height: 100%;
+        }
+
+        .backgroundUtama {
+            position: relative;
+            width: 100%;
+            height: 100vh;
+            background-image: url('/resource/perumahan/rumah/rumah1.jpg');
+            background-size: cover;
+            background-position: center;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            transition: background-image 1s ease-in-out;
+        }
+
+        .overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.7);
+            z-index: 1;
+        }
+
+        header {
+            display: flex;
+            flex-direction: column;
+            position: relative;
+            z-index: 2;
+            margin-right: 40%;
+            margin-left: 10%;
+        }
+
+        header .container {
+            text-align: left;
+            width: 200%;
+            position: relative;
+            overflow: hidden;
+        }
+
+        @font-face {
+            font-family: myFont;
+            src: url(/resource/font/ShailendraDemoRegular.ttf);
+        }
+
+        header .container h1 {
+            font-size: 40px;
+            font-weight: 500;
+            left: -100%;
+            margin-block-start: 0;
+            margin-block-end: 0;
+            font-family: 'MyFirstFont';
+            position: relative;
+        }
+
+        header .container p {
+            font-size: 30px;
+            left: -200%;
+            margin-block-start: 0;
+            margin-block-end: 0;
+            position: relative;
+        }
+
+        .navbar {
+            margin-top: 80px;
+        }
+
+        .navbar ul {
+            list-style-type: none;
+            margin: 0;
+            padding: 0;
+        }
+
+        .navbar ul li {
+            display: inline;
+            margin-right: 12px;
+        }
+
+        .navbar ul li a {
+            text-decoration: none;
+            font-size: 15pt;
+            text-align: center;
+            color: #ffffff;
+            padding: 10px 20px;
+            border-radius: 5px;
+            border: 2px solid #c4c3c3;
+            margin: 0 5px;
+            transition: background-color 0.3s, color 0.3s, transform 0.3s;
+        }
+
+        .navbar ul li a:hover {
+            background-color: #ffffff;
+            color: #000000;
+            transform: scale(1.1);
+            border-color: #ffffff;
+        }
+    </style>
+</head>
+
+<body class="backgroundUtama">
+    <div class="overlay"></div>
+    <header>
+        <div class="container">
+            <div style="border-left: #ffffff solid; padding-left: 12px ;">
+                <br>
+                <br>
+                <h1 class="tittle" style="font-size: 40; font-family: myFont;">Cemara Resident Home</h1>
+                <p class="tittle" style="padding-left: 40px;">Hunian yang Nyaman dan Asri Kota Serang </p>
+            </div>
+        </div>
+
+        <nav class="navbar">
+            <ul>
+                <li><a href="galeri.html">Galeri</a></li>
+                <li><a href="Fitur.HTML">Fitur</a></li>
+                <li><a href="about.html">Tentang Kami</a></li>
+                <li><a href="kontak.html">Kontak</a></li>
+            </ul>
+        </nav>
+    </header>
+</body>
+
+</html>

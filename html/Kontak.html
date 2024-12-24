@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="id">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kontak - Perumahan Impian</title>
+    <link rel="stylesheet" href="../css/Home.CSS">
+    <style>
+        body,
+        html {
+            margin: 0;
+            padding: 0;
+            width: 100%;
+            height: 100%;
+        }
+        main {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 80vh;
+            padding: 20px;
+        }
+
+        form {
+            display: grid;
+            gap: 15px;
+        }
+        .container-form-txt{
+            color: #251414;
+        }
+
+        form label {
+            font-size: 14px;
+            color: #f5eeee;
+            text-align: left;
+        }
+
+        form input,
+        form textarea {
+            padding: 10px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            font-size: 14px;
+        }
+
+        form input:focus,
+        form textarea:focus {
+            border-color: #ffa500;
+            outline: none;
+        }
+
+        form button {
+            padding: 10px 20px;
+            background-color: #ffa500;
+            border: none;
+            border-radius: 5px;
+            color: white;
+            font-size: 16px;
+            cursor: pointer;
+        }
+
+        form button:hover {
+            background-color: #e59400;
+        }
+
+        .popup {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.5);
+            justify-content: center;
+            align-items: center;
+            z-index: 1000;
+        }
+
+        .popup-content {
+            background: white;
+            padding: 20px;
+            border-radius: 10px;
+            text-align: center;
+            max-width: 400px;
+            width: 100%;
+        }
+
+        .popup-content button {
+            margin-top: 20px;
+            padding: 10px 20px;
+            background-color: #ffa500;
+            border: none;
+            border-radius: 5px;
+            color: white;
+            font-size: 16px;
+            cursor: pointer;
+        }
+
+        .popup-content button:hover {
+            background-color: #e59400;
+        }
+
+</style>
+</head>
+<body>
+    <video id="video-background" autoplay muted loop>
+        <source src="/resource/background video/background.mp4" type="video/mp4">
+    </video>
+    <header>
+        <div class="logo">
+            <img src="../resource/logo/logo utama.jpg" alt="Logo Perumahan Impian">
+        </div>
+        <nav class="navbar">
+            <nav>
+                <ul>
+                    <li><a href="home.html">Beranda</a></li>
+                    <li><a href="about.html">Tentang Kami</a></li>
+                    <li><a href="galeri.html">Galeri</a></li>
+                    <li><a href="Fitur.HTML">Fitur</a></li>
+                    <li><a href="kontak.html">Kontak</a></li>
+                </ul>
+            </nav>
+        </nav>
+    </header>
+    <main>
+        <section id="container">
+            <h1>Kontak Kami</h1>
+            <form id="contactForm">
+                <label ="container-form-txt" for="nama">Nama:</label>
+                <input class="container-form-txt" type="text" id="nama" name="nama" required aria-label="Nama">
+                <label ="container-form-txt" for="email">Email:</label>
+                <input class="container-form-txt" type="email" id="email" name="email" required aria-label="Email">
+                <label ="container-form-txt" for="pesan">Pesan:</label>
+                <textarea class="container-form-txt" id="pesan" name="pesan" required aria-label="Pesan"></textarea>
+                <button class="container-form-txt" type="submit">Kirim</button>
+            </form>
+        </section>
+    </main>
+    <div class="popup" id="popup">
+        <div class="popup-content">
+            <p>Terimakasih telah menghubungi, tunggu beberapa saat untuk mendapatkan pesan dari kami.</p>
+            <button id="closePopup">Tutup</button>
+        </div>
+    </div>
+    <footer style="position: fixed;">
+        <div class="contact-info">
+            <p>Hubungi kami melalui email: <a
+                href="mailto:info.nizhamaufr@gmail.com">info.CemaraResident@gmail.com</a> atau telepon: <a
+                href="tel:+62899-0436-397">+62 813-8436-0058</a>
+            lokasi : <a href="https://maps.app.goo.gl/9GYcfZmueBdhkcif7">Cemara resident Serang</a></p>
+        </div>
+            <div class="social-media">
+                <a href="https://www.facebook.com/?locale=id_ID" class="social-icon"><img src="/resource/icon footer/facebook (1).png" alt="Facebook"></a>
+                <a href="https://www.instagram.com/accounts/login/" class="social-icon"><img src="/resource/icon footer//instagram.png" alt="Instagram"></a>
+                <a href="https://home-x.com/" class="social-icon"><img src="/resource/icon footer//logos.png" alt="Logos"></a>
+            </div>
+    </footer >
+    <script>
+        document.getElementById('contactForm').addEventListener('submit', function (event) {
+            event.preventDefault();
+            document.getElementById('popup').style.display = 'flex';
+        });
+
+        document.getElementById('closePopup').addEventListener('click', function () {
+            document.getElementById('popup').style.display = 'none';
+            document.getElementById('contactForm').reset();
+        });
+    </script>
+</body>
+
+</html>
